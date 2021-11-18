@@ -10,4 +10,12 @@
   dia=tiempo->tm_mday;
   mes=tiempo->tm_mon;
   anio=(tiempo->tm_year)+1900;
+  if((anio%4==0)&&(anio%100!=0)||(anio%400)==0)
+  {
+   febrero=29; 
+  }
+  else
+  {
+   febrero=28;
+  }
 }
