@@ -45,4 +45,21 @@
 		case 10:printf("\t\tNOVIEMBRE\t%d",anio);break;
 		case 11:printf("\t\tDICIEMBRE\t%d",anio);break;
 	}
+	int semana=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+(mes+1)%7)%7;
+	printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
+	for(m=0;m<semana;m++)
+	{
+		printf("\t");
+	}
+	for(i=1; i<=total_mes;i++)
+	{
+		if (i==8-semana||i==15-semana||i==22-semana||i==29-semana||i==36-semana)
+		{
+			printf("\n%d\t",i);
+		}
+		else
+		{
+			printf("%d\t",i);
+		}
+	}
 }
