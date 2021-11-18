@@ -1,2 +1,10 @@
 #include<stdio.h>
 #include<time.h>
+ int main()
+{
+  int m,i,repeat=0,mes2,anio2,total_mes,febrero;
+  time_t sistime,dia,mes,anio;
+  time(&sistime);
+  struct tm *tiempo=localtime(&sistime);
+  printf("hoy es: %d/%d/%d\n\n",tiempo->tm_mday,tiempo->tm_mon,tiempo->tm_year);
+}
