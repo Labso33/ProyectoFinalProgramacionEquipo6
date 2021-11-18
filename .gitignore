@@ -66,4 +66,11 @@ int main()
 	printf("\n1=SI\t0=NO --> ");
 	scanf("%d",&repeat);
 	fflush(stdin);
+	if (repeat==1)
+	{
+		printf("\n\nINGRESA MES -->");
+		scanf("%i",&mes2);
+		printf("\nINGRESA AÑO -->");
+		scanf("%i",&anio2);
+	}
 }
