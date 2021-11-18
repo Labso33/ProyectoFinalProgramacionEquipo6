@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<time.h>
- int main()
+int main()
 {
 	int m,i,repeat=0,mes2,anio2,total_mes,febrero;
 	time_t sistime,dia,mes,anio;
@@ -62,4 +62,8 @@
 			printf("%d\t",i);
 		}
 	}
+	printf("\n\n Quieres buscar otra fecha?");
+	printf("\n1=SI\t0=NO --> ");
+	scanf("%d",&repeat);
+	fflush(stdin);
 }
