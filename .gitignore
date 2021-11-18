@@ -2,34 +2,34 @@
 #include<time.h>
  int main()
 {
-  int m,i,repeat=0,mes2,anio2,total_mes,febrero;
-  time_t sistime,dia,mes,anio;
-  time(&sistime);
-  struct tm *tiempo=localtime(&sistime);
-  printf("hoy es: %d/%d/%d\n\n",tiempo->tm_mday,tiempo->tm_mon,tiempo->tm_year);
-  dia=tiempo->tm_mday;
-  mes=tiempo->tm_mon;
-  anio=(tiempo->tm_year)+1900;
-  if((anio%4==0)&&(anio%100!=0)||(anio%400)==0)
-  {
-   febrero=29; 
-  }
-  else
-  {
-   febrero=28;
-  }
-  switch(mes)
-  {
-   case 3: case 5: case 8: case 10:
-    total_mes=30;
-   break;
-   case 0: case 2: case 4: case 6: case 7: case 9: case 11:
-    total_mes=31;
-   break;
-   case 1:
-    total_mes=febrero;
-   break;
-  }
+	int m,i,repeat=0,mes2,anio2,total_mes,febrero;
+	time_t sistime,dia,mes,anio;
+	time(&sistime);
+	struct tm *tiempo=localtime(&sistime);
+	printf("hoy es: %d/%d/%d\n\n",tiempo->tm_mday,tiempo->tm_mon,tiempo->tm_year);
+	dia=tiempo->tm_mday;
+	mes=tiempo->tm_mon;
+	anio=(tiempo->tm_year)+1900;
+	if((anio%4==0)&&(anio%100!=0)||(anio%400)==0)
+	{
+		febrero=29; 
+	}
+	else
+	{
+		febrero=28;
+	}
+	switch(mes)
+	{
+		case 3: case 5: case 8: case 10:
+		total_mes=30;
+		break;
+		case 0: case 2: case 4: case 6: case 7: case 9: case 11:
+		total_mes=31;
+		break;
+		case 1:
+		total_mes=febrero;
+		break;
+	}
 	switch(mes)
 	{
 		case 0:printf("\t\tENERO\t%d",anio);break;
