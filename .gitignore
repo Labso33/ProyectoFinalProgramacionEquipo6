@@ -30,4 +30,19 @@
     total_mes=febrero;
    break;
   }
+	switch(mes)
+	{
+		case 0:printf("\t\tENERO\t%d",anio);break;
+		case 1:printf("\t\tFEBRERO\t%d",anio);break;
+		case 2:printf("\t\tMARZO\t%d",anio);break;
+		case 3:printf("\t\tABRIL\t%d",anio);break;
+		case 4:printf("\t\tMAYO\t%d",anio);break;
+		case 5:printf("\t\tJUNIO\t%d",anio);break;
+		case 6:printf("\t\tJULIO\t%d",anio);break;
+		case 7:printf("\t\tAGOSTO\t%d",anio);break;
+		case 8:printf("\t\tSEPTIEMBRE\t%d",anio);break;
+		case 9:printf("\t\tOCTUBRE\t%d",anio);break;
+		case 10:printf("\t\tNOVIEMBRE\t%d",anio);break;
+		case 11:printf("\t\tDICIEMBRE\t%d",anio);break;
+	}
 }
