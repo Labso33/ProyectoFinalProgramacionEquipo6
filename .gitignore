@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<time.h>
-void imprimecalendario(int mes,int anio);
+void imprimecalendario(int mes,int anio); //Declaracón de la función para imprimir el calendario deseado del usuario
 int main()
 {
-	int m,i,repeat=0,mes2,anio2,total_mes,febrero;
+	int m,i,repeat=0,mes2,anio2,total_mes,febrero,modulomes; //Declaracion de variables
 	time_t sistime,dia,mes,anio;
 	time(&sistime);
 	struct tm *tiempo=localtime(&sistime);
@@ -11,7 +11,7 @@ int main()
 	dia=tiempo->tm_mday;
 	mes=tiempo->tm_mon;
 	anio=(tiempo->tm_year)+1900;
-	if((anio%4==0)&&(anio%100!=0)||(anio%400)==0)
+	if((anio%4==0)&&(anio%100!=0)||(anio%400)==0) //verificar si el año dado es bisiesto ó no
 	{
 		febrero=29; 
 	}
@@ -19,7 +19,7 @@ int main()
 	{
 		febrero=28;
 	}
-	switch(mes)
+	switch(mes) //Asignar el numero de dias a los meses
 	{
 		case 3: case 5: case 8: case 10:
 		total_mes=30;
@@ -31,7 +31,7 @@ int main()
 		total_mes=febrero;
 		break;
 	}
-	switch(mes)
+	switch(mes) //imprimir el nombre del mes en base a el año
 	{
 		case 0:printf("\t\tENERO\t%d",anio);break;
 		case 1:printf("\t\tFEBRERO\t%d",anio);break;
@@ -46,13 +46,97 @@ int main()
 		case 10:printf("\t\tNOVIEMBRE\t%d",anio);break;
 		case 11:printf("\t\tDICIEMBRE\t%d",anio);break;
 	}
-	int semana=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+(mes+1)%7)%7;
+	if (febrero==29) //calculo modulomes
+	{
+		switch(mes)
+		{
+			case 0:
+				modulomes= 0;
+			break;
+			case 1:
+				modulomes= 3;
+			break;
+			case 2:
+				modulomes= 4;
+			break;
+			case 3:
+				modulomes= 0;
+			break;
+			case 4:
+				modulomes= 2;
+			break;
+			case 5:
+				modulomes= 5;
+			break;
+			case 6:
+				modulomes= 0;
+			break;
+			case 7:
+				modulomes= 3;
+			break;
+			case 8:
+				modulomes= 6;
+			break;
+			case 9:
+				modulomes= 1;
+			break;
+			case 10:
+				modulomes= 4;
+			break;
+			case 11:
+				modulomes= 6;
+			break;
+		}
+	}
+	else
+	{
+		switch(mes)
+		{
+			case 0:
+				modulomes= 0;
+			break;
+			case 1:
+				modulomes= 3;
+			break;
+			case 2:
+				modulomes= 3;
+			break;
+			case 3:
+				modulomes= 6;
+			break;
+			case 4:
+				modulomes= 1;
+			break;
+			case 5:
+				modulomes= 4;
+			break;
+			case 6:
+				modulomes= 6;
+			break;
+			case 7:
+				modulomes= 2;
+			break;
+			case 8:
+				modulomes= 5;
+			break;
+			case 9:
+				modulomes= 0;
+			break;
+			case 10:
+				modulomes= 3;
+			break;
+			case 11:
+				modulomes= 5;
+			break;
+		}
+	}
+	int semana=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+(modulomes+1)%7)%7; //Calculo del dia en el cual inicia la primer semana del mes
 	printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
-	for(m=0;m<semana;m++)
+	for(m=0;m<semana;m++) //imprimir la separación de dias vacios al incio del mes
 	{
 		printf("\t");
 	}
-	for(i=1; i<=total_mes;i++)
+	for(i=1; i<=total_mes;i++) //Imprimir dias del mes
 	{
 		if (i==8-semana||i==15-semana||i==22-semana||i==29-semana||i==36-semana)
 		{
@@ -78,9 +162,9 @@ int main()
 	puts("\n\n");
 	return 0;
 }
-void imprimecalendario(int mes,int anio)
+void imprimecalendario(int mes,int anio) //Creacion de la función imprimecalendario (Copia de la función main)
 {
-	int m,i,total_mes,febrero;
+	int m,i,total_mes,febrero,modulomes;
 	mes=mes-1;
 	if((anio%4==0)&&(anio%100!=0)||(anio%400)==0)
 	{
@@ -117,7 +201,91 @@ void imprimecalendario(int mes,int anio)
 		case 10:printf("\t\tNOVIEMBRE\t%d",anio);break;
 		case 11:printf("\t\tDICIEMBRE\t%d",anio);break;
 	}
-	int semana=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+(mes+1)%7)%7;
+	if (febrero==29)
+	{
+		switch(mes)
+		{
+			case 0:
+				modulomes= 0;
+			break;
+			case 1:
+				modulomes= 3;
+			break;
+			case 2:
+				modulomes= 4;
+			break;
+			case 3:
+				modulomes= 0;
+			break;
+			case 4:
+				modulomes= 2;
+			break;
+			case 5:
+				modulomes= 5;
+			break;
+			case 6:
+				modulomes= 0;
+			break;
+			case 7:
+				modulomes= 3;
+			break;
+			case 8:
+				modulomes= 6;
+			break;
+			case 9:
+				modulomes= 1;
+			break;
+			case 10:
+				modulomes= 4;
+			break;
+			case 11:
+				modulomes= 6;
+			break;
+		}
+	}
+	else
+	{
+		switch(mes)
+		{
+			case 0:
+				modulomes= 0;
+			break;
+			case 1:
+				modulomes= 3;
+			break;
+			case 2:
+				modulomes= 3;
+			break;
+			case 3:
+				modulomes= 6;
+			break;
+			case 4:
+				modulomes= 1;
+			break;
+			case 5:
+				modulomes= 4;
+			break;
+			case 6:
+				modulomes= 6;
+			break;
+			case 7:
+				modulomes= 2;
+			break;
+			case 8:
+				modulomes= 5;
+			break;
+			case 9:
+				modulomes= 0;
+			break;
+			case 10:
+				modulomes= 3;
+			break;
+			case 11:
+				modulomes= 5;
+			break;
+		}
+	}
+	int semana=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+(modulomes+1)%7)%7;
 	printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
 	for(m=0;m<semana;m++)
 	{
